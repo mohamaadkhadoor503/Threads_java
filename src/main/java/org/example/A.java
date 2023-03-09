@@ -1,15 +1,23 @@
 package org.example;
 
-public class A implements Runnable{
+public class A {
+    Names names=new Names();
+    public  void work1() throws  Exception{
 
-    ReentranlockClass s;
 
-    public A(ReentranlockClass s) {
-        this.s = s;
+    synchronized (names){
+        System.out.println("Enter name");
+        names.wait();
+        System.out.println(names.name);
+
     }
-
-    @Override
-    public void run() {
-        s.print(5);
+}
+    public  void work2() throws Exception{
+        synchronized (names){
+            Thread.sleep(500);
+names.name=Thread.currentThread().getName();
+//names.notify();
+            names.notifyAll();
+        }
     }
 }
