@@ -1,9 +1,9 @@
 package org.example;
 
 public class B implements Runnable {
-    Sync s;
+    ReentranlockClass s;
 
-    public B(Sync s) {
+    public B(ReentranlockClass s) {
         this.s = s;
     }
 
